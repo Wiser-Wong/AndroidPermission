@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this,"执行业务",Toast.LENGTH_LONG).show();
         }else {
             //申请权限
-            Toast.makeText(this,"申请权限",Toast.LENGTH_LONG).show();
+//            Toast.makeText(this,"申请权限",Toast.LENGTH_LONG).show();
             //申请权限
             AndPermission.with(this)
                     .requestCode(100)
@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
     @PermissionNo(100)
     private void getDefeated(List<String> deniedPermissions) {
+        AndPermission.defineSettingDialog(this, 1);
         // 用户否勾选了不再提示并且拒绝了权限，那么提示用户到设置中授权。
         if (AndPermission.hasAlwaysDeniedPermission(this, deniedPermissions)) {
             // 第一种：用默认的提示语。
